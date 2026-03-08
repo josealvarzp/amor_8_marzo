@@ -1,0 +1,292 @@
+x/* Custom CSS for Women's Day Landing Page */
+:root {
+    --bg-color: #fcf9f2; /* Creamy beige */
+    --text-color: #4a4036; /* Espresso brown */
+    --text-light: #7a6e62; /* Soft brown */
+    --accent-color: #c99c75; /* Warm caramel */
+    --accent-hover: #b5885f; /* Darker caramel */
+    --secondary-bg: #f5eedf; /* Muted beige */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Animations */
+.reveal, .fade-in, .text-body, .text-quote {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active, .fade-in.active, .text-body.active, .text-quote.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typography Base */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 10px 30px rgba(74, 64, 54, 0.1);
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer; /* To test placeholder replacement */
+}
+
+/* Placeholder gradient if no image is present */
+.hero-img[src="placeholder-image.jpg"] {
+    background: linear-gradient(135deg, #eaddcc, #f4efe7);
+    color: transparent;
+}
+
+/* To simulate a placeholder text since we don't have the image */
+.hero-img[src="placeholder-image.jpg"]::before {
+    content: "Toca para agregar tu foto";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-light);
+    z-index: 10;
+}
+
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(252, 249, 242, 0.8) 100%);
+}
+
+.hero-text {
+    margin-top: -3rem;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-style: italic;
+}
+
+.hero-text h1 span {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+/* Content Sections */
+.section {
+    padding: 5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Details and Ornaments */
+.ornament {
+    width: 2px;
+    height: 40px;
+    background-color: var(--accent-color);
+    margin: 2rem auto;
+}
+
+.flower-bg {
+    background-image: radial-gradient(var(--secondary-bg) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.text-body {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.large-text {
+    font-size: 1.25rem;
+}
+
+/* Admire Section */
+.highlighted-section {
+    background-color: var(--secondary-bg);
+    border-top: 1px solid rgba(201, 156, 117, 0.2);
+    border-bottom: 1px solid rgba(201, 156, 117, 0.2);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 0 auto 2rem auto;
+}
+
+.highlight {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    display: block;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Quote Section */
+.text-quote {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-top: 2rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+    border-left: 2px solid var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+}
+
+/* Video Section */
+.video-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.video-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* Video Embed Container (Optimized for Shorts 9:16) */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px; /* Ancho máximo para parecer la pantalla de un celular */
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(74, 64, 54, 0.15);
+    /* Cálculo para aspect ratio 9:16 -> (16 / 9) * 100% = 177.77% */
+    padding-bottom: 177.77%; 
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--secondary-bg);
+    color: var(--text-light);
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Desktop sizing up (even though it's mobile first, let's make it look pristine on larger screens) */
+@media (min-width: 768px) {
+    .image-wrapper {
+        height: 70vh;
+        border-bottom-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text h1 span {
+        font-size: 3.5rem;
+    }
+    
+    .text-body {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+    
+    .text-quote {
+        font-size: 2.5rem;
+    }
+}
