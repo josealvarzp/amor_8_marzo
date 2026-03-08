@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, en este día 🤍</title>
+    <meta name="description" content="A la mujer que ilumina mis días. Una dedicación especial.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Hero Image Section -->
+    <header class="hero" id="home">
+        <div class="image-wrapper reveal">
+            <!-- Coloca tu foto aquí con el nombre foto.png -->
+            <img src="foto.png" alt="Foto especial" class="hero-img" id="uploadedImage">
+            <div class="image-overlay"></div>
+        </div>
+        <div class="hero-text reveal">
+            <h1>A la mujer que <br><span>ilumina mis días</span><br> y le da sentido a mis sueños.</h1>
+        </div>
+    </header>
+
+    <!-- First Text Section -->
+    <section class="section flower-bg" id="celebration">
+        <div class="container">
+            <div class="ornament top"></div>
+            <p class="text-body fade-in">
+                Hoy no solo celebro el Día de la Mujer.<br><br>
+                Hoy celebro tu esencia, tu fortaleza silenciosa, tu belleza y todo lo que te hace ser quien
+                eres.<br><br>
+                Porque desde que estás en este mundo, él es un poco más luminoso… y desde que estás en mi vida, la mía
+                es infinitamente más hermosa.
+            </p>
+            <div class="ornament bottom"></div>
+        </div>
+    </section>
+
+    <!-- Second Text Section -->
+    <section class="section highlighted-section" id="admiration">
+        <div class="container reveal">
+            <h2 class="section-title">La mujer que admiro</h2>
+            <div class="divider"></div>
+            <p class="text-body">
+                Admiro tu esencia, tu inteligencia y la manera en que dejas huella en todo lo que tocas.
+                <br><br>
+                Admiro tu forma de amar, de cuidar y de transformar los momentos simples en recuerdos valiosos.
+                <br><br>
+                Pero, sobre todo, admiro la mujer extraordinaria que eres: <span class="highlight">fuerte, sensible,
+                    auténtica y llena de una luz que inspira.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Third Text Section / Conclusion -->
+    <section class="section" id="conclusion">
+        <div class="container reveal">
+            <p class="text-body large-text">
+                Hoy celebro lo que eres, lo que representas y la increíble mujer que tengo la fortuna de conocer.
+                <br><br>
+                Porque este día también me recuerda algo muy simple y muy verdadero:
+            </p>
+            <p class="text-quote">
+                "Lo afortunado que soy de que una mujer como tú forme parte de mi vida."
+            </p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container reveal">
+            <p class="video-text">Tengo algo más para ti...</p>
+            <a href="https://youtube.com/shorts/cdW_QtGwox4?si=1NW7WE5nL6fB3Cqg" target="_blank" class="btn-video">
+                <i class="fa-solid fa-play"></i>
+                Ver el video
+            </a>
+        </div>
+
+        <!-- Subtle botanical decoration -->
+        <div class="botanical-decor left"></div>
+        <div class="botanical-decor right"></div>
+    </section>
+
+    <footer class="footer">
+        <p>Con todo mi cariño 🤎</p>
+    </footer>
+
+    <!-- Animations script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal, .fade-in, .text-body, .text-quote');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger on load
+        });
+    </script>
+</body>
+
+</html>
