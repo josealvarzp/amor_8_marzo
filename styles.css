@@ -1,19 +1,10 @@
-x
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
-/* Custom CSS for Women's Day Landing Page */
 :root {
-    --bg-color: #fcf9f2;
-    /* Creamy beige */
-    --text-color: #4a4036;
-    /* Espresso brown */
-    --text-light: #7a6e62;
-    /* Soft brown */
-    --accent-color: #c99c75;
-    /* Warm caramel */
-    --accent-hover: #b5885f;
-    /* Darker caramel */
-    --secondary-bg: #f5eedf;
-    /* Muted beige */
+    --bg-peach: #faede1; /* El color exacto del fondo beige/durazno de la plantilla */
+    --text-dark: #5c4033; /* El tono marrón oscuro elegante para títulos */
+    --text-light: #9e8c80; /* Tono marrón suave para los párrafos */
+    --accent: #d4a373; /* Tono de contraste cálido */
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
 }
@@ -25,333 +16,294 @@ x
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--bg-peach);
+    color: var(--text-dark);
     font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Animations */
-.reveal,
-.fade-in,
-.text-body,
-.text-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
-}
-
-.reveal.active,
-.fade-in.active,
-.text-body.active,
-.text-quote.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Typography Base */
-h1,
-h2,
-h3 {
-    font-family: var(--font-heading);
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-p {
-    font-size: 1.1rem;
-    color: var(--text-color);
-}
-
-/* Hero Section */
-.hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    overflow-x: hidden;
     position: relative;
-    padding-bottom: 2rem;
+    /* Suavizado de letra para diseño premium */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.image-wrapper {
-    width: 100%;
-    height: 70vh;
-    /* Aumentado para mayor presencia en celular */
-    position: relative;
-    overflow: hidden;
-    border-bottom-left-radius: 50px;
-    /* Redondeado más pronunciado */
-    border-bottom-right-radius: 50px;
-    box-shadow: 0 15px 40px rgba(74, 64, 54, 0.15);
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    cursor: pointer;
-    /* To test placeholder replacement */
-}
-
-/* Placeholder gradient if no image is present */
-.hero-img[src="placeholder-image.jpg"] {
-    background: linear-gradient(135deg, #eaddcc, #f4efe7);
-    color: transparent;
-}
-
-/* To simulate a placeholder text since we don't have the image */
-.hero-img[src="placeholder-image.jpg"]::before {
-    content: "Toca para agregar tu foto";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--text-light);
-    z-index: 10;
-}
-
-
-.image-overlay {
-    position: absolute;
+/* Background Decorations (Acuarelas) */
+.bg-layer {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(252, 249, 242, 0.9) 100%);
-    /* Transición al beige más suave */
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.hero-text {
-    margin-top: -5rem;
-    /* El texto se monta más sobre la imagen para integración */
-    z-index: 2;
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-    background: rgba(252, 249, 242, 0.95);
-    /* Semi-transparente y más suave */
-    backdrop-filter: blur(10px);
-    /* Efecto vidrio elegante (Glassmorphism sutil) */
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    width: 92%;
-    max-width: 600px;
+.css-shape {
+    position: absolute;
+    background-color: var(--accent);
+    opacity: 0.08; /* Muy sutil, como acuarela difusa */
+    filter: blur(40px); /* Desenfoque para parecer textura y no forma sólida */
 }
 
-.hero-text h1 {
-    font-size: 2.2rem;
-    /* Ligeramente más grande */
-    line-height: 1.25;
-    font-style: italic;
+/* Forma irregular orgánica esquina superior */
+.shape-top-left {
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 500px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: rotate(20deg);
 }
 
-.hero-text h1 span {
-    color: var(--accent-color);
-    font-size: 2.8rem;
-    /* Mayor protagonismo */
-    display: block;
-    margin: 0.6rem 0;
+/* Forma irregular orgánica esquina inferior */
+.shape-bottom-right {
+    bottom: -15%;
+    right: -5%;
+    width: 800px;
+    height: 600px;
+    border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
+    background-color: var(--text-dark);
+    opacity: 0.05;
+    transform: rotate(-30deg);
 }
 
-/* Content Sections */
-.section {
-    padding: 6rem 1.5rem;
-    /* Más espacio para respirar arriba y abajo */
-    text-align: center;
+/* Main Container (Diseño Carta) */
+.page-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para una lectura cómoda y elegante */
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
 }
 
-/* Details and Ornaments */
-.ornament {
-    width: 2px;
-    height: 50px;
-    /* Adorno más estilizado */
-    background-color: var(--accent-color);
-    margin: 2.5rem auto;
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem; /* Letra enorme Serif de la plantilla */
+    line-height: 1.1;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 1rem;
 }
 
-/* Subtle line separator */
-.subtle-line {
-    width: 60px; /* Un poco más ancha para que se vea claro que es división */
-    height: 1.5px; /* Un poquito más gruesa para que no se pierda en el móvil */
-    background-color: var(--accent-color); /* Color más oscuro y notorio */
-    margin: 1.8rem auto; /* MUCHO menos espacio de separación entre párrafos */
-    opacity: 0.6; /* Sigue siendo sutil pero visible */
-}
-
-.flower-bg {
-    background-image: radial-gradient(var(--secondary-bg) 1.5px, transparent 1.5px);
-    background-size: 25px 25px;
-}
-
-.text-body {
+.subtitle {
     font-size: 1.3rem;
     font-weight: 300;
-    line-height: 1.6; /* Reducimos el interlineado para que el texto no esté tan separado */
     color: var(--text-light);
-    letter-spacing: -0.01em;
+    letter-spacing: 2px;
 }
 
-.large-text {
-    font-size: 1.45rem;
-    color: var(--text-color);
-}
-
-/* Admire Section */
-.highlighted-section {
-    background-color: var(--secondary-bg);
-    border-top: 1px solid rgba(201, 156, 117, 0.2);
-    border-bottom: 1px solid rgba(201, 156, 117, 0.2);
-}
-
-.section-title {
-    font-size: 2.5rem;
+/* Imagen de la Dedicatoria al tope (Line Art) */
+.top-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-bottom: 1rem;
-    color: var(--text-color);
-    font-style: italic;
+    margin-top: -1rem; /* Acercar un poco más al borde superior */
 }
 
-.divider {
-    width: 60px;
-    height: 1px;
-    background-color: var(--accent-color);
-    margin: 0 auto 2rem auto;
+.top-hero-image {
+    width: 100%;
+    max-width: 280px; /* Tamaño delicado, no gigante */
+    height: auto;
+    object-fit: contain;
+    /* Truco de diseño CSS moderno: vuelve el fondo blanco 100% transparente para que solo se vean las líneas negras y adopte el color crema de la página */
+    mix-blend-mode: multiply;
 }
 
-.highlight {
-    font-family: var(--font-heading);
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    display: block;
-    margin-top: 1rem;
-    font-style: italic;
-}
-
-/* Quote Section */
-.text-quote {
-    font-family: var(--font-heading);
-    font-size: 1.9rem; /* Un poco más grande para acentuar el final */
-    color: var(--accent-color);
-    font-style: italic;
-    margin-top: 3rem; /* Más espacio arriba */
-    line-height: 1.5;
-    padding: 1rem 1.5rem; /* Más espacio lateral e interno */
-    border-left: 3px solid var(--accent-color); /* Borde más notorio */
-    border-right: 3px solid var(--accent-color);
-    background-color: rgba(201, 156, 117, 0.05); /* Fondo muy sutil para resaltarla */
-    border-radius: 15px; /* Bordes suaves */
-}
-
-/* Video Section */
-.video-section {
-    padding: 8rem 2rem 6rem; /* Mucho más espacio para que respire al final */
+/* Message Body */
+.message-body {
+    width: 100%;
+    max-width: 650px;
     text-align: center;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.video-text {
-    font-family: var(--font-heading);
-    font-size: 2rem; /* Tamaño optimizado */
-    margin-bottom: 2.5rem;
-    color: var(--text-color);
+.text-paragraph {
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--text-dark);
+    font-weight: 300;
+    margin: 1.5rem 0;
 }
 
-.btn-video {
+/* Separadores sutiles (Bolitas en lugar de líneas para aspecto Boho) */
+.separator-dots {
+    display: flex;
+    gap: 8px;
+    margin: 2rem 0;
+}
+
+.separator-dots::before,
+.separator-dots::after,
+.separator-dots {
+    content: ""; /* For the dots if needed, but styling a div is easier */
+}
+
+/* Actually let's use a nice CSS trick for 3 dots */
+.separator-dots {
+    width: 40px;
+    height: 4px;
+    background-image: radial-gradient(circle, var(--accent) 2px, transparent 2px);
+    background-size: 12px 100%; /* Spacing between dots */
+    background-repeat: repeat-x;
+    opacity: 0.6;
+}
+
+.separator-line {
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent);
+    margin: 1rem 0 2rem;
+    opacity: 0.5;
+}
+
+.inner-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+.text-highlight {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--accent);
+    font-style: italic;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+/* Quote Box (Recuadro estilo estadísticas pero para texto) */
+.quote-box {
+    margin-top: 2rem;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(158, 140, 128, 0.4);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--text-dark);
+    background-color: rgba(255, 255, 255, 0.15); /* Muy translúcido */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+/* Action Section / Video Button */
+.action-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-text {
+    font-size: 1rem;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+/* El botón minimalista rectangular de tu referencia */
+.video-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* Asegura el centrado */
-    gap: 12px;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 1.2rem 3rem; /* Botón más grande y fácil de tocar */
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 500;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid var(--text-dark);
+    color: var(--text-dark);
+    padding: 1rem 4rem;
+    font-size: 0.9rem;
+    font-weight: 400;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(201, 156, 117, 0.4);
-    transition: all 0.3s ease;
+    letter-spacing: 4px; /* Las letras bien separadas V I D E O */
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    width: 90%; /* Ocupa casi todo el ancho en móviles */
-    max-width: 320px; /* Pero tiene un límite para que no se vea exagerado en tablets */
+    transition: all 0.3s ease;
 }
 
-/* Video Embed Container (Optimized for Shorts 9:16) */
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px;
-    /* Ancho máximo para parecer la pantalla de un celular */
-    margin: 0 auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(74, 64, 54, 0.15);
-    /* Cálculo para aspect ratio 9:16 -> (16 / 9) * 100% = 177.77% */
-    padding-bottom: 177.77%;
-    height: 0;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+.video-btn:hover {
+    background-color: var(--text-dark);
+    color: var(--bg-peach);
 }
 
 /* Footer */
 .footer {
+    margin-top: auto;
     padding: 2rem;
-    text-align: center;
-    background-color: var(--secondary-bg);
-    color: var(--text-light);
     font-family: var(--font-heading);
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: var(--text-light);
 }
 
-/* Desktop sizing up (even though it's mobile first, let's make it look pristine on larger screens) */
-@media (min-width: 768px) {
-    .image-wrapper {
-        height: 70vh;
-        border-bottom-left-radius: 80px;
-        border-bottom-right-radius: 80px;
-    }
+/* Animaciones de aparición suave al hacer scroll */
+.reveal, .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
 
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .hero-text h1 span {
+/* Modo Móvil */
+@media (max-width: 768px) {
+    .main-title {
         font-size: 3.5rem;
     }
-
-    .text-body {
-        font-size: 1.25rem;
+    
+    .subtitle {
+        font-size: 1.1rem;
     }
-
-    .section-title {
-        font-size: 3.5rem;
+    
+    .circle-frame {
+        max-width: 320px;
+        padding: 10px; /* Borde más pequeño en celular */
     }
-
-    .text-quote {
-        font-size: 2.5rem;
+    
+    .text-paragraph {
+        font-size: 1.05rem;
+        padding: 0 1rem;
+    }
+    
+    .quote-box {
+        font-size: 1.6rem;
+        padding: 2rem 1.5rem;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .decor-top-left {
+        width: 300px;
+    }
+    
+    .decor-bottom-right {
+        width: 400px;
+    }
+    
+    .video-btn {
+        padding: 1rem 3rem;
+        width: 85%; /* Se ajusta mejor a la pantalla pequeña */
+        max-width: 300px;
     }
 }
