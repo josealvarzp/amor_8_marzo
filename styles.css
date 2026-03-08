@@ -184,10 +184,11 @@ p {
 
 /* Subtle line separator */
 .subtle-line {
-    width: 40px;
-    height: 1px;
-    background-color: rgba(201, 156, 117, 0.4);
-    margin: 3.5rem auto;
+    width: 60px; /* Un poco más ancha para que se vea claro que es división */
+    height: 1.5px; /* Un poquito más gruesa para que no se pierda en el móvil */
+    background-color: var(--accent-color); /* Color más oscuro y notorio */
+    margin: 1.8rem auto; /* MUCHO menos espacio de separación entre párrafos */
+    opacity: 0.6; /* Sigue siendo sutil pero visible */
 }
 
 .flower-bg {
@@ -197,13 +198,10 @@ p {
 
 .text-body {
     font-size: 1.3rem;
-    /* Textos más accesibles y legibles en móvil */
     font-weight: 300;
-    line-height: 1.85;
-    /* Más separación entre renglones */
+    line-height: 1.6; /* Reducimos el interlineado para que el texto no esté tan separado */
     color: var(--text-light);
     letter-spacing: -0.01em;
-    /* Apariencia más moderna */
 }
 
 .large-text {
